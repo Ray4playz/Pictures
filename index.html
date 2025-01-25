@@ -3,52 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Portfolio for Medieproduksjon</title>
+    <title>Modern Photo Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for Theme */
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #ffffff;
+            --background-color: #f4f4f9;
+            --text-color: #333;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
         /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
         body {
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
             text-align: center;
+            line-height: 1.6;
         }
 
         /* Header Section */
         header {
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
+            padding: 30px 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            box-shadow: 0px 4px 6px var(--card-shadow);
         }
 
-        h1 {
+        header h1 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
         }
 
         /* Gallery Section */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 20px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .gallery img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 6px var(--card-shadow);
         }
 
         .gallery img:hover {
             transform: scale(1.05);
+            box-shadow: 0px 8px 12px var(--card-shadow);
         }
 
         /* Lightbox Styles */
@@ -69,6 +89,7 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
+            animation: fadeIn 0.5s;
         }
 
         .lightbox:target {
@@ -79,17 +100,33 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            color: #fff;
+            color: var(--secondary-color);
             font-size: 2rem;
             text-decoration: none;
+            font-weight: bold;
         }
 
         /* Footer Section */
         footer {
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            margin-top: 30px;
+            box-shadow: 0px -4px 6px var(--card-shadow);
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -97,18 +134,18 @@
 
     <!-- Header -->
     <header>
-        <h1>My Photo Portfolio</h1>
-        <p>A showcase of my favorite shots</p>
+        <h1>Modern Photo Portfolio</h1>
+        <p>Showcasing my most cherished photography moments</p>
     </header>
 
     <!-- Photo Gallery -->
     <section class="gallery">
-        <!-- Each image links to its larger version using an ID -->
         <a href="#img1"><img src="image1.jpg" alt="Photo 1"></a>
         <a href="#img2"><img src="image2.jpg" alt="Photo 2"></a>
         <a href="#img3"><img src="image3.jpg" alt="Photo 3"></a>
-       
-       
+        <a href="#img4"><img src="image4.jpg" alt="Photo 4"></a>
+        <a href="#img5"><img src="image5.jpg" alt="Photo 5"></a>
+        <a href="#img6"><img src="image6.jpg" alt="Photo 6"></a>
     </section>
 
     <!-- Lightbox for Enlarged Images -->
@@ -124,11 +161,22 @@
         <a href="#" class="close-btn">&times;</a>
         <img src="image3.jpg" alt="Photo 3">
     </div>
- 
+    <div id="img4" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="image4.jpg" alt="Photo 4">
+    </div>
+    <div id="img5" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="image5.jpg" alt="Photo 5">
+    </div>
+    <div id="img6" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="image6.jpg" alt="Photo 6">
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 min fotoportfolio | All Rights Reserved</p>
+        <p>&copy; 2025 Modern Photo Portfolio | All Rights Reserved</p>
     </footer>
 
 </body>
